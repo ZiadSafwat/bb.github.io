@@ -44,7 +44,16 @@
 				camera.position.set( - 1.8, 0.9, 2.7 );
 
 				scene = new THREE.Scene();
-				        scene.background = new THREE.Color(0xdddddd);
+				scene.background = new THREE.CubeTextureLoader()
+					.setPath( 'textures/' )
+					.load( [
+						'px.png',
+						'nx.png',
+						'py.png',
+						'ny.png',
+						'pz.png',
+						'nz.png'
+					] );
 				envmapfile = '';
 
 				if(envmapfile != ''){

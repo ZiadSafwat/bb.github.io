@@ -111,9 +111,9 @@
 					loader.load( 'BarberShopChair_01_2k.glb', function ( gltf ) {
 						scene.add( gltf.scene );
 						
-// 						var hemiLight = new THREE.HemisphereLight(0xffffff, 0x999999, 1);
-// 						hemiLight.position.set( 0, 50, 0 );
-// 						scene.add( hemiLight );
+						var hemiLight = new THREE.HemisphereLight(0xffffff, 0x999999, 1);
+						hemiLight.position.set( 0, 50, 0 );
+						scene.add( hemiLight );
 						
 // 						var dirLight = new THREE.DirectionalLight( 0xffffff, 0.6 );
 // 						dirLight.position.set( -10, 50, 0 );
@@ -126,7 +126,7 @@
 						scene.add(hlight);
 
 						directionalLight = new THREE.DirectionalLight(0xffffff,100);
-						directionalLight.position.set(0,1,0);
+						directionalLight.position.set(-10,50,0);
 						directionalLight.castShadow = true;
 						scene.add(directionalLight);
 

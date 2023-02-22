@@ -44,17 +44,8 @@
 				camera.position.set( - 1.8, 0.9, 2.7 );
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.CubeTextureLoader()
-					.setPath( 'textures/' )
-					.load( [
-						'px.png',
-						'nx.png',
-						'py.png',
-						'ny.png',
-						'pz.png',
-						'nz.png'
-					] );
-				envmapfile = '';
+
+				envmapfile = 'k.hdr';
 
 				if(envmapfile != ''){
 					new RGBELoader()
@@ -101,7 +92,8 @@
 							if(true) { scene.background = cubeGenerator.renderTarget; }
 
 						} );
-				} else {
+
+					} else {
 					// model
 
 					var loader = new GLTFLoader().setPath( './' );
@@ -111,47 +103,18 @@
 					loader.load( 'BarberShopChair_01_2k.glb', function ( gltf ) {
 						scene.add( gltf.scene );
 						
-						var hemiLight = new THREE.HemisphereLight(0xffffff, 0x999999, 5);
+						var hemiLight = new THREE.HemisphereLight(0xffffff, 0x999999, 1);
 						hemiLight.position.set( 0, 50, 0 );
 						scene.add( hemiLight );
 						
-						var dirLight = new THREE.DirectionalLight( 0xffffff, 10 );
+						var dirLight = new THREE.DirectionalLight( 0xffffff, 0.6 );
 						dirLight.position.set( -10, 50, 0 );
 					
 						scene.add( dirLight );
-						
-						///////////////////////////////////
-						
-// 						hlight = new THREE.AmbientLight (0x404040,100);
-// 						scene.add(hlight);
-
-// 						directionalLight = new THREE.DirectionalLight(0xffffff,100);
-// 						directionalLight.position.set(-10,50,0);
-// 						directionalLight.castShadow = true;
-// 						scene.add(directionalLight);
-
-// 						light = new THREE.PointLight(0xc4c4c4,10);
-// 						light.position.set(0,300,500);
-// 						scene.add(light);
-
-// 						light2 = new THREE.PointLight(0xc4c4c4,10);
-// 						light2.position.set(500,100,0);
-// 						scene.add(light2);
-
-// 						light3 = new THREE.PointLight(0xc4c4c4,10);
-// 						light3.position.set(0,100,-500);
-// 						scene.add(light3);
-
-// 						light4 = new THREE.PointLight(0xc4c4c4,10);
-// 						light4.position.set(-500,300,500);
-// 						scene.add(light4);
-						///////////////////////////
-						
-						
+						console.log("else");
 					} );
 
 				}
-
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
